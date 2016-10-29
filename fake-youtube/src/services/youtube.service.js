@@ -1,5 +1,4 @@
 let ytSearch = require("youtube-api-search");
-import _ from 'lodash'; 
 class YoutubeService{
     constructor(){
         this.apiKey = 'AIzaSyBYnLPP6W4XLUBFQBoPBpGtMdyUHDtwveM';
