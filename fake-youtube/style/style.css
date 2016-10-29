@@ -1,0 +1,31 @@
+/* Styles for Search Bar's component */
+.search-bar{
+    text-align: center;
+    margin: 1em;
+}
+
+.search-bar input{
+    width: 75%;
+}
+
+/* Styles for Video Item 's component */
+.list-group-item{
+    cursor: pointer;
+}
+
+.video-list-item img {
+    max-width: 98px;
+}
+
+.list-group-item:hover{
+    background-color: #eee;
+}
+
+/* Styles for video details panel */
+.video-details .details {
+    margin-top: 10px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
