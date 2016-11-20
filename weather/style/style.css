@@ -1,0 +1,22 @@
+/*.search-bar {
+    width: 75%;
+    margin:auto;
+}*/
+
+.search-bar, .weather-list {
+    margin-top:20px;
+}
+
+.weather-list th {
+    text-align: center;
+}
+
+.weather-list td:first-of-type {
+    width: 240px;
+    height: 50px;
+}
+
+.chart-line, .chart-line-title{
+    text-align: center;
+}
+

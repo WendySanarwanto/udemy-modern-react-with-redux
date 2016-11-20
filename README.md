@@ -4,3 +4,4 @@ A collection of ReactJS exercises samples based on tutorial videos of Udemy's Mo
 ## Sample Apps
 - **fake-youtube** - A simple web SPA which demonstrate the fundamental concepts of *ReactJS* such as *Component*, *State* & *Props*.
 - **books-list** - This sample demonstrate the concepts of *React-Redux* such as Reducers, Action, ActionCreators, map state to props, map action to props & containers.
+- **weather** - This sample demonstrate calling Backend API from within Action Creator, transform the result through using Redux-Promise library, rendering Chart component using react-sparklines, display google maps and few other more.
