@@ -11,7 +11,7 @@ This is a simple web SPA which demonstrate the basic parts of React-Redux such a
 - Refactoring duplicated markups by moving these markup into a component (WeatherList component) so that the markups can be shared in other area within application.
 
 
-# Known issues:
+###Known issues:###
 
 - Current implementation does not support responsive layout. 
 - Returned Error from calling API Backend has not been shown on screen yet.
@@ -39,5 +39,10 @@ Click [here](https://github.com/WendySanarwanto/udemy-modern-react-with-redux/ar
 ```
 	> npm install
 	> npm start
+```
+or, if you favor yarn over npm:
 
-
+```	
+	> yarn
+	> npm start
+```
