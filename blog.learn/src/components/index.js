@@ -1,4 +1,4 @@
 import App from './app';
-import Greet from './greet';
+import PostsIndex from './posts-index';
 
-export { App, Greet };
+export { App, PostsIndex };

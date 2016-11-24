@@ -1,3 +1,5 @@
+const webpack = require('webpack');
+
 module.exports = {
   entry: [
     './src/index.js'
@@ -19,8 +21,17 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.jsx']
   },
+  watchOptions: {
+      aggregateTimeout: 300,
+      poll: 1000
+  },
   devServer: {
+    hot: true,
+    inline: true,
     historyApiFallback: true,
     contentBase: './'
-  }
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin({multiStep: true})
+  ]
 };
