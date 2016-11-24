@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ReduxPromise from 'redux-promise';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 // 1. Import Router & browserHistory objects from react-router library.
@@ -14,7 +15,7 @@ import reducers from './reducers';
 // 3. Import routes object from routes.js file then assign the routes object to Router's routes property
 import routes from './routes';
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
