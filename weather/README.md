@@ -15,7 +15,7 @@ This is a simple web SPA which demonstrate the basic parts of React-Redux such a
 
 - Current implementation does not support responsive layout. 
 - Returned Error from calling API Backend has not been shown on screen yet.
-- Refreshing the result can only be made through refreshing the page. 
+- Refreshing the result can only be made through refreshing the page.
 
 Interested in learning [Redux](https://www.udemy.com/react-redux/)?
 

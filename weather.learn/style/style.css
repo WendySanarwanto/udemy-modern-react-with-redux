@@ -1,0 +1,32 @@
+#search-bar {
+    margin-top:20px;
+}
+
+#search-bar-icon {
+    background-color: #FFF;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;    
+}
+
+#search-bar-input {
+    border-left-style: none;
+}
+
+#search-bar-submit button{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;        
+}
+
+.weather-list{
+    margin-top:40px;
+}
+
+.weather-list th, .weather-list td {
+    vertical-align: middle!important;
+    text-align: center!important;
+}
+
+.weather-list td:first-of-type {
+    height: 190px;
+    width: 240px;
+}
