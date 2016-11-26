@@ -3,8 +3,8 @@ import React from 'react';
 // Route is an object to define & match between URL and the component.
 import { Route, IndexRoute } from 'react-router';
 
-import { App, PostsNew } from './components';
-import { PostsIndex } from './containers';
+import { App } from './components';
+import { PostsIndex, PostsNew } from './containers';
 
 // 2. Define a rule to map "/" URL path to render App Component
 export default (
