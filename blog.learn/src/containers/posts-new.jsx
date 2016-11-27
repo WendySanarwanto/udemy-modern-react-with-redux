@@ -11,9 +11,8 @@ class PostsNew extends Component {
     }
 
     render() {
-        // Create references to form's setting properties created by redux-form
         const { handleSubmit } = this.props;
-        console.log('[DEBUG-PostsNew] - this.props=', this.props);
+        console.log('[DEBUG-PostsNew] - render, this.props=', this.props);
         return (
             <form onSubmit = { handleSubmit(this.onSubmit.bind(this)) }>
                 <h3>Create A New Post</h3>
@@ -39,9 +38,6 @@ class PostsNew extends Component {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators( { createPost }, dispatch);
-}
-
-const postNewReduxForm = reduxForm({ form: 'PostsNewForm'})(PostsNew);
-export default connect(null, mapDispatchToProps)(postNewReduxForm);
+export default connect(null, { createPost })(
+    reduxForm({ form: 'PostsNewForm' })(PostsNew)
+);
