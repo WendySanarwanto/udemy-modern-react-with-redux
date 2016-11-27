@@ -28,7 +28,7 @@ class PostsNew extends Component {
 
                 <div className="form-group">
                     <label>Content</label>
-                    <Field name="content" component="input" type="text" className="form-control"/> 
+                    <Field name="content" component="textarea" cols="40" rows="5" type="text" className="form-control"/> 
                 </div>
 
                 <button className="btn btn-primary" type="submit">Submit</button>
