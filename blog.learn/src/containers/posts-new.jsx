@@ -13,11 +13,12 @@ class PostsNew extends Component {
 
     renderInput(field, renderComponent){
         const error = field.meta.error;
-        const isInvalid = field.meta.touched && field.meta.error;
-        const containerStyle = "form-group has-feedback";
+        const isInvalid = field.meta.touched && field.meta.invalid;
+        // console.log('[DEBUG-PostsNew] - In renderInput, field.meta=', field.meta);
+        const containerStyle = `form-group ${ isInvalid ? 'has-error' : '' }`;
 
         return (
-            <div className={isInvalid ? `${containerStyle} has-error` : containerStyle}>
+            <div className={containerStyle}>
                 <label className="control-label">{field.label}</label>
                 { renderComponent(field) }
                 { isInvalid && <span className="help-block">{error}</span> } 
