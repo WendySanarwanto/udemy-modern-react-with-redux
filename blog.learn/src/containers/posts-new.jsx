@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Link } from 'react-router';
 import { connect } from 'react-redux'; 
 import { reduxForm, Field } from 'redux-form';
 import { createPost } from '../actions/create-post.action';
@@ -45,7 +46,7 @@ class PostsNew extends Component {
         const { handleSubmit } = this.props;
         // console.log('[DEBUG-PostsNew] - render, this.props=', this.props);
         return (
-            <form onSubmit = { handleSubmit(this.onSubmit.bind(this)) }>
+            <form className="form-add-post" onSubmit = { handleSubmit(this.onSubmit.bind(this)) }>
                 <h3>Create A New Post</h3>
 
                 <Field name="title" type="text" component={ this.renderInputText } label="Title"/>
@@ -53,6 +54,7 @@ class PostsNew extends Component {
                 <Field name="content" type="text" cols="40" rows="10" component={ this.renderTextArea } label="Content"/>                
 
                 <button className="btn btn-primary" type="submit">Submit</button>
+                <Link to="/" className="btn btn-danger">Cancel</Link>
             </form>
         );
     }
