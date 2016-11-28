@@ -22,22 +22,23 @@ class PostsIndex extends Component {
                         Add a Post
                     </Link>
                 </div>
-                {this.props.posts.all.map(post=>{
-                    return (
-                        <div key={post.id}>
-                            <hr />
-                            <div><span>Title:    </span>{post.title}</div>
-                            <div><span>Category:   </span>{post.categories}</div>
-                        </div>
-                    );
-                })}              
+                <h3>Posts</h3>
+                <ul className="list-group">                    
+                    {this.props.posts.map(post=>{
+                        return (
+                            <Link className="list-group-item" href="#" key={post.id} style={{cursor: 'pointer'}}>
+                                <strong>{post.title}</strong><span className="badge">{post.categories}</span>
+                            </Link>
+                        );
+                    })}
+                </ul>                
             </div>
         );
     }
 }
 
-const mapStateToProps = ( { posts } ) => {
-    return { posts }
+const mapStateToProps = ( state ) => {
+    return { posts: state.posts.all }
 }
 
 // const mapDispatchToProps = (dispatch, ownProps) => {
