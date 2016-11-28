@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux'; 
 import { reduxForm, Field } from 'redux-form';
@@ -6,6 +6,13 @@ import { createPost } from '../actions/create-post.action';
 import Validator from 'Validator';
 
 class PostsNew extends Component {
+    /**
+     * Create a reference to Router object through defining context property for this component
+     */
+    static contextTypes = {
+        router: PropTypes.object
+    };
+
     constructor(){
         super();
         this.renderInputText = this.renderInputText.bind(this);
@@ -39,7 +46,9 @@ class PostsNew extends Component {
 
     onSubmit(e){
         // console.log('[DEBUG-PostsNew] - onSubmit, e=', e);
-        this.props.createPost(e);
+        // Upon successfull action, refer to the router object, exposed by context property, then call its push method with index route path as its argument.
+        this.props.createPost(e)
+            .then(this.context.router.push('/'));
     }
     
     render() {
