@@ -4,7 +4,7 @@ import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
 import { App } from './components';
-import { PostsIndex, PostsNew } from './containers';
+import { PostsIndex, PostsNew, PostsShow } from './containers';
 
 // 2. Define a rule to map "/" URL path to render App Component
 export default (
@@ -12,5 +12,6 @@ export default (
         <IndexRoute component={PostsIndex}/>
         <Route path="posts" component={PostsIndex} />    
         <Route path="posts/new" component={PostsNew} />
+        <Route path="posts/:id" component={PostsShow}></Route>
     </Route>
-)
+);
