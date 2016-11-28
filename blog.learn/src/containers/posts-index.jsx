@@ -26,7 +26,7 @@ class PostsIndex extends Component {
                 <ul className="list-group">                    
                     {this.props.posts.map(post=>{
                         return (
-                            <Link className="list-group-item" href="#" key={post.id} style={{cursor: 'pointer'}}>
+                            <Link className="posts-list-item list-group-item" to={`/posts/${post.id}`} key={post.id}>
                                 <strong>{post.title}</strong><span className="badge">{post.categories}</span>
                             </Link>
                         );

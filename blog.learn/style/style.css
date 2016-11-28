@@ -1,3 +1,7 @@
 .form-add-post a {
     margin-left: 10px;
 }
+
+.posts-list-item {
+    cursor: pointer
+}
