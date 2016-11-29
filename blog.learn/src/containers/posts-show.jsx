@@ -1,7 +1,16 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router';
+import { FetchPost } from '../actions';
 
-class PostsShow extends Component {
+class PostsShow extends Component {    
+
+    componentWillMount() {        
+        const id = this.props.params.id;
+        console.log('[DEBUG-PostsShow] - id = ', id);
+        this.props.FetchPost(id);
+    }
+        
     render() {
         return (
             <div>
@@ -11,4 +20,4 @@ class PostsShow extends Component {
     }
 }
 
-export default PostsShow;
+export default connect(null, { FetchPost })(PostsShow);

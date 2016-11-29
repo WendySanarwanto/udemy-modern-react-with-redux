@@ -10,7 +10,7 @@ import { FetchPosts } from '../actions';
 class PostsIndex extends Component {
 
     componentWillMount(){
-        console.log('[DEBUG-PostIndex] - componentWillMount is called. Should call fetchPosts action creator in here.');
+        console.log('[DEBUG-PostsIndex] - componentWillMount is called. Should call fetchPosts action creator in here.');
         this.props.FetchPosts();
     }
 
