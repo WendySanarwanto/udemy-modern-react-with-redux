@@ -8,10 +8,18 @@ import { connect } from 'react-redux';
 import { FetchPosts } from '../actions';
 
 class PostsIndex extends Component {
-
     componentWillMount(){
         console.log('[DEBUG-PostsIndex] - componentWillMount is called. Should call fetchPosts action creator in here.');
         this.props.FetchPosts();
+    }
+
+    renderPostItem(post){
+        console.log('[DEBUG-PostsIndex] - renderPostItem is called. post=', post);
+        return (
+            <Link className="posts-list-item list-group-item" to={`/posts/${post.id}`} key={post.id}>
+                <strong>{post.title}</strong><span className="badge">{post.categories}</span>
+            </Link>
+        ); 
     }
 
     render() {
@@ -23,14 +31,8 @@ class PostsIndex extends Component {
                     </Link>
                 </div>
                 <h3>Posts</h3>
-                <ul className="list-group">                    
-                    {this.props.posts.map(post=>{
-                        return (
-                            <Link className="posts-list-item list-group-item" to={`/posts/${post.id}`} key={post.id}>
-                                <strong>{post.title}</strong><span className="badge">{post.categories}</span>
-                            </Link>
-                        );
-                    })}
+                <ul className="list-group">  
+                    { this.props.posts.map(post=> this.renderPostItem(post)) } 
                 </ul>                
             </div>
         );
