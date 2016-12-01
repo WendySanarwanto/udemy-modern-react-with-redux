@@ -9,6 +9,7 @@ class PostsShow extends Component {
     };
 
     componentWillMount() {        
+        this.state = { apiCallDelay: 50 };
         const id = this.props.params.id;
         console.log('[DEBUG-PostsShow] - id = ', id);
         this.props.FetchPost(id);
@@ -17,7 +18,9 @@ class PostsShow extends Component {
     onDeletingPost(){
         const id = this.props.params.id;
         this.props.deletePost(id)
-            .then(this.context.router.push('/'));
+            .then(() => {
+                setTimeout(this.context.router.push('/'), this.state.apiCallDelay ); 
+            });
     }
 
     render() {

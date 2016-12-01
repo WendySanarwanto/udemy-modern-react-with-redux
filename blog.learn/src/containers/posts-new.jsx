@@ -17,6 +17,7 @@ class PostsNew extends Component {
         super();
         this.renderInputText = this.renderInputText.bind(this);
         this.renderTextArea = this.renderTextArea.bind(this);
+        this.state = { apiCallDelay: 50 };
     }
 
     renderInput(field, renderComponent){
@@ -48,7 +49,11 @@ class PostsNew extends Component {
         // console.log('[DEBUG-PostsNew] - onSubmit, e=', e);
         // Upon successfull action, refer to the router object, exposed by context property, then call its push method with index route path as its argument.
         this.props.createPost(e)
-            .then(this.context.router.push('/'));
+            .then(()=>{
+                setTimeout( this.context.router.push('/'), this.state.apiCallDelay );
+            });
+            //.then( setTimeout( this.context.router.push('/')), this.state.apiCallDelay );
+
     }
     
     render() {
