@@ -1,8 +1,12 @@
+const path = require('path');
 const webpack = require('webpack');
+
+const styleDirPath = path.join( __dirname, 'style' );
 
 module.exports = {
   entry: [
-    './src/index.js'
+    './src/index.js',
+    styleDirPath + '/style.css'
   ],
   output: {
     path: __dirname,
@@ -16,6 +20,10 @@ module.exports = {
       query: {
         presets: ['react', 'es2015', 'stage-1']
       }
+    }, {
+      test: /\.css$/,
+      loaders: ['style', 'css'],
+      include: styleDirPath
     }]
   },
   resolve: {
@@ -29,7 +37,8 @@ module.exports = {
     hot: true,
     inline: true,
     historyApiFallback: true,
-    contentBase: './'
+    contentBase: './',
+    port:3000
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin({multiStep: true})
