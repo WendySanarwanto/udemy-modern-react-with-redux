@@ -1,7 +1,8 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
-import { App, PostsIndex } from './components';
+import { App } from './components';
+import { PostsIndex } from './containers';
 
 // TODO: Export component which render <Route> and its children. These markups define the page navigation routes within our application
 export default (    
