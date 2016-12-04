@@ -1,6 +1,6 @@
 # Weather, a React-Redux's Sample  
 
-This is a simple web SPA which demonstrate the basic parts of React-Redux such as Reducers, Action, Action creator and also these new things: 
+This is a simple web SPA which demonstrate the concepts in React-Redux such as Reducers, Action, Action creator and calling Backend API. Below are the details inside of the app : 
 
 - Action creator for calling API Backend (OpenWeather API) & defined the Action's type as constant.
 - Calling API through using axios library.
@@ -39,5 +39,4 @@ Click [here](https://github.com/WendySanarwanto/udemy-modern-react-with-redux/ar
 ```
 	> npm install
 	> npm start
-
-
+```
