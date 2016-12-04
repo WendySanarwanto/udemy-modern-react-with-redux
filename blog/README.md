@@ -12,6 +12,31 @@ Below are the details inside of the app :
 - Create a reducer which hold the retrieved a list of data & an individual data and packed within a state.
 - Building Form user interface for submitting entries through using components in redux-form library, including field's validations.
 
+# Work Details:
+Below are detail of works that are taken for implementing this sample:
+
+1. Prepare project repository - setup required dependencies, .gitignore setting, README.md.
+2. Define application's routes for navigating pages within the application.
+3. Create Posts Index page component which is supposed to display a list of post items.
+4. Create Action creator for fetching a list of post items.
+5. Connect the fetch post action creator with the Post Index component's props.
+6. Create Reducer which holds retrieved post items and a post's content.
+7. Connect the reducer to Post Index component's props and render the items on Post Index's screen.
+8. Create Add New Post page component and implement the form by using redux-form 
+9. Add Link button on Post Index component which redirect the user to Add New post page when it's clicked.
+10. Create Action creator for sending entered post on the Add New Post to Backend API.
+11. Connect the Post New data Action Creator with the Add New Post page component. Ensure the action is invoked when Save button is clicked.
+12. Navigate the user to Post Items list index page when Add New Post button is clicked and Post to Backend is completed.
+13. Redirect the user to Post Items list index page when Cancel Link button is clicked.
+14. Create View Post page component. Ensure that the user visit the page when they click a Post Item on the Posts List Index page.
+15. Create Action creator for fetching a Post Data from Backend API.
+16. Connect the Fetch Post action creator to the View Post page component. Ensure that the action is called when the page is loaded.
+17. Connect the reducer to the View Post page component. Ensure that the fetched post is rendered on page's fields.
+18. Handle back to Posts List inde page button's clicked event on View Post page component.
+19. Create action creator for deleting a Post by ID. 
+20. Connect the Delete Post action creator with the View Post page component. Ensure that the action is called when Delete button is clicked.
+21. Navigate the user to Post Items list index page when Delete Post button is clicked and Post to Backend is completed.
+
 # Known issues:
 
 - Current implementation does not support responsive layout.
