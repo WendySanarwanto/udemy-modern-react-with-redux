@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { fetchPosts } from '../actions';
 
 class PostsIndex extends Component {
@@ -10,7 +9,6 @@ class PostsIndex extends Component {
 
     render () {
         const posts = this.props.posts;
-        //const posts = [ {id: '123', title: 'test', categories: 'general'}, { id: '345', title: 'test2', categories: 'general'} ];
         const noItemsInfo = `You have no any post items yet. Click Add Post to add your 1st post.`;
         return (
             <div className="posts-index">
@@ -36,14 +34,10 @@ class PostsIndex extends Component {
     }
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-    return bindActionCreators({ fetchPosts }, dispatch);
-}
-
 const mapStateToProps = (state, ownProps) => {
     return {
         posts: state.posts.all
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PostsIndex);
+export default connect(mapStateToProps, { fetchPosts })(PostsIndex);
