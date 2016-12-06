@@ -1,3 +1,11 @@
 .app {
     margin-top: 20px;
 }
+
+.post-new-form input {
+    width: 30%;
+}
+
+.post-new-form-cancel-btn {
+    margin-left: 1em;
+}
