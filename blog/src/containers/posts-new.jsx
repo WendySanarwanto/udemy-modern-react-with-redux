@@ -7,15 +7,15 @@ class PostsNew extends Component {
             <div className="posts-new container">
                 <form className="post-new-form">
                     <div className="form-group">
-                        <label htmlFor="title">Title</label>
+                        <label className="control-label" htmlFor="title">Title</label>
                         <input type="text" className="form-control" id="title" />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="categories">Categories</label>
+                        <label className="control-label" htmlFor="categories">Categories</label>
                         <input type="text" className="form-control" id="categories" />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="contents">Contents</label>
+                        <label className="control-label" htmlFor="contents">Contents</label>
                         <textarea rows="10" cols="40" className="form-control" id="contents" />
                     </div>
                     <button type="submit" className="btn btn-primary">&nbsp;Save&nbsp;</button>
