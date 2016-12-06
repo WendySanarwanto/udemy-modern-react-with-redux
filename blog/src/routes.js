@@ -5,7 +5,8 @@ import { App } from './components';
 import { PostsIndex, PostsNew } from './containers';
 
 /** 
- * Export component which render <Route> and its children. These markups define the page navigation routes within our application
+ * Export component which render <Route> and its children. 
+ * These markups define the page navigation routes within our application.
  */ 
 export default (    
     <Route path="/" component={App}>
