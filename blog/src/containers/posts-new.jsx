@@ -1,23 +1,30 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { Field, reduxForm } from 'redux-form';
 import Validator from 'Validator';
+import { createPost } from '../actions';
 
-class PostsNew extends Component {    
+class PostsNew extends Component {
+    /**
+     * Get reference to router object
+     */
+    static contextTypes = {
+        router: PropTypes.object
+    };
+
     render() {
         const { handleSubmit } = this.props;
         return (
-            <div className="posts-new container">
-                <form onSubmit={handleSubmit(this.onSubmit)} className="post-new-form">
-                    <Field name="title" label="title" type="text" component={this.renderInputField}/>
-                    <Field name="categories" label="categories" type="text" component={this.renderInputField}/>
-                    <Field name="content" rows="10" cols="40" label="content" type="textarea" component={this.renderTextAreaField}/>
-                    <button type="submit" className="btn btn-primary">&nbsp;Save&nbsp;</button>
-                    <Link type="button" to="/" className="btn btn-danger post-new-form-cancel-btn">
-                        Cancel
-                    </Link>
-                </form>
-            </div>
+            <form onSubmit={ handleSubmit(this.onSubmit.bind(this)) } className="post-new-form">
+                <Field name="title" label="title" type="text" component={this.renderInputField}/>
+                <Field name="categories" label="categories" type="text" component={this.renderInputField}/>
+                <Field name="content" rows="10" cols="40" label="content" type="textarea" component={this.renderTextAreaField}/>
+                <button type="submit" className="btn btn-primary">&nbsp;Save&nbsp;</button>
+                <Link type="button" to="/" className="btn btn-danger post-new-form-cancel-btn">
+                    Cancel
+                </Link>
+            </form>
         );
     }
 
@@ -43,6 +50,13 @@ class PostsNew extends Component {
     
     onSubmit(values){
         console.log('[DEBUG-PostsNew] - onSubmit is called. values=', values);
+        console.log('[DEBUG-PostsNew] - onSubmit is called. this=', this);
+        this.props.createPost(values)
+            .then(()=>{
+                // Add small amount of delay before redirecting back to index,
+                // to give time for the backend creating the new post and returning a list of posts with the created new post.
+                setTimeout( this.context.router.push('/'), 50);
+            });        
     }
 
     /**
@@ -67,7 +81,9 @@ class PostsNew extends Component {
     }
 }
 
-export default reduxForm({
+const form = reduxForm({
     form: 'createNewPost',
     validate: PostsNew.validate
-})(PostsNew);
+})(PostsNew)    
+ 
+export default connect(null, { createPost })(form);
