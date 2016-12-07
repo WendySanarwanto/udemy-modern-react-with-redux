@@ -21,20 +21,22 @@ class PostsNew extends Component {
         );
     }
 
-    renderInputField({ input, label, name, type }){
+    renderInputField({ input, label, name, type, meta: { error, invalid, touched } }){
         return (
-            <div className="form-group">
-                <label htmlFor={name}>{label}</label>
+            <div className={ `form-group has-feedback ${touched && invalid ? 'has-error' : ''}`}>
+                <label className="control-label" htmlFor={name}>{label}</label>
                 <input type={type} className="form-control" id={name} {...input} />
+                { touched && invalid && <span className="help-block">{error}</span>}
             </div>
         );    
     }
 
-    renderTextAreaField({ input, rows, cols, label, name, type }){
+    renderTextAreaField({ input, rows, cols, label, name, type, meta: { error, invalid, touched } }){
         return (
-            <div className="form-group">
-                <label htmlFor={name}>{label}</label>
+            <div className={ `form-group has-feedback ${touched && invalid ? 'has-error' : ''}`}>
+                <label className="control-label" htmlFor={name}>{label}</label>
                 <textarea rows={rows} cols={cols} className="form-control" id={name} {...input} />
+                { touched && invalid && <span className="help-block">{error}</span>}
             </div>
         );    
     }
