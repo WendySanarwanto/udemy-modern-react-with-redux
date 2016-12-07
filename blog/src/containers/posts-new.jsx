@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router';
 import { Field, reduxForm } from 'redux-form';
+import Validator from 'Validator';
 
 class PostsNew extends Component {    
     render() {
@@ -10,7 +11,7 @@ class PostsNew extends Component {
                 <form onSubmit={handleSubmit(this.onSubmit)} className="post-new-form">
                     <Field name="title" label="title" type="text" component={this.renderInputField}/>
                     <Field name="categories" label="categories" type="text" component={this.renderInputField}/>
-                    <Field name="contents" rows="10" cols="40" label="contents" type="textarea" component={this.renderTextAreaField}/>
+                    <Field name="content" rows="10" cols="40" label="content" type="textarea" component={this.renderTextAreaField}/>
                     <button type="submit" className="btn btn-primary">&nbsp;Save&nbsp;</button>
                     <Link type="button" to="/" className="btn btn-danger post-new-form-cancel-btn">
                         Cancel
@@ -41,8 +42,30 @@ class PostsNew extends Component {
     onSubmit(values){
         console.log('[DEBUG-PostsNew] - onSubmit is called. values=', values);
     }
+
+    /**
+     * A set of rules, to be used for validating values of each form input fields
+     */
+    static validationRules = {
+        title: 'required',
+        categories: 'required',
+        content: 'required'
+    }; 
+
+    /**
+     * Validate form's entered values through calling Validator's make method with specified validation rules.
+     */
+    static validate(values){
+        const result = Validator.make(values, PostsNew.validationRules);
+        const errors = result.fails() ? result.getErrors() : {};
+
+        console.log('[DEBUG-PostsNew] - validateFields is called. errors: ', errors);
+
+        return errors;
+    }
 }
 
 export default reduxForm({
-    form: 'createNewPost'
+    form: 'createNewPost',
+    validate: PostsNew.validate
 })(PostsNew);
