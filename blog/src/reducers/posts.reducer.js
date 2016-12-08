@@ -1,4 +1,4 @@
-import FETCH_POSTS from '../actions';
+import { FETCH_POSTS } from '../actions';
 
 const initialState = { all: [], post: null }
 export default (state = initialState, action) => {
