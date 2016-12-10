@@ -16,15 +16,17 @@ class PostsNew extends Component {
     render() {
         const { handleSubmit } = this.props;
         return (
-            <form onSubmit={ handleSubmit(this.onSubmit.bind(this)) } className="post-new-form">
-                <Field name="title" label="title" type="text" component={this.renderInputField}/>
-                <Field name="categories" label="categories" type="text" component={this.renderInputField}/>
-                <Field name="content" rows="10" cols="40" label="content" type="textarea" component={this.renderTextAreaField}/>
-                <button type="submit" className="btn btn-primary">&nbsp;Save&nbsp;</button>
-                <Link type="button" to="/" className="btn btn-danger post-new-form-cancel-btn">
-                    Cancel
-                </Link>
-            </form>
+            <div className="posts-new container">
+                <form onSubmit={ handleSubmit(this.onSubmit.bind(this)) } className="post-new-form">
+                    <Field name="title" label="title" type="text" component={this.renderInputField}/>
+                    <Field name="categories" label="categories" type="text" component={this.renderInputField}/>
+                    <Field name="content" rows="10" cols="40" label="content" type="textarea" component={this.renderTextAreaField}/>
+                    <button type="submit" className="btn btn-primary">&nbsp;Save&nbsp;</button>
+                    <Link type="button" to="/" className="btn btn-danger post-new-form-cancel-btn">
+                        Cancel
+                    </Link>
+                </form>
+            </div>
         );
     }
 
@@ -49,8 +51,6 @@ class PostsNew extends Component {
     }
     
     onSubmit(values){
-        console.log('[DEBUG-PostsNew] - onSubmit is called. values=', values);
-        console.log('[DEBUG-PostsNew] - onSubmit is called. this=', this);
         this.props.createPost(values)
             .then(()=>{
                 // Add small amount of delay before redirecting back to index,
