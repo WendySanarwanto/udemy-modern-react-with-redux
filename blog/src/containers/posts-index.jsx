@@ -7,7 +7,7 @@ class PostsIndex extends Component {
     componentDidMount(){
         this.props.fetchPosts();
     }
-
+    
     render () {
         const posts = this.props.posts;
         const noItemsInfo = `You have no any post items yet. Click Add Post to add your 1st post.`;
@@ -16,8 +16,7 @@ class PostsIndex extends Component {
                 <div className="text-right">
                     <Link to="/posts/new" className="btn btn-primary">Add Post</Link>
                 </div>
-                <hr />
-                <div>
+                <div className="posts-index-list-container">
                     {posts.length > 0 ? 
                         <ul className="list-group"> {posts.map(post => this.renderPostItem(post))}</ul> : 
                         <span className="alert alert-info">{noItemsInfo}</span> }                                         
@@ -28,10 +27,10 @@ class PostsIndex extends Component {
 
     renderPostItem(post){
         return (
-            <li className="list-group-item" key={post.id}>
+            <Link className="posts-list-item list-group-item" to={`/posts/${post.id}`} key={post.id}>
                 <span>{post.title}</span>
                 <span className="badge">{post.categories}</span>
-            </li>
+            </Link>
         )
     }
 }
