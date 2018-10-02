@@ -14,7 +14,10 @@ class Home extends Component {
     }
     
     componentWillMount() {
-        this.setState({videos: [], selectedVideo:undefined});
+      this.setState({
+        videos: [], 
+        selectedVideo:undefined
+      });
     }    
 
     componentDidMount(){
@@ -25,7 +28,7 @@ class Home extends Component {
     render() {
         return (
             <div className="home">
-                <SearchBar onSearchChanged={(search)=>this.onSearchChanged(search)} /> 
+                <SearchBar onSearchChanged={ term => this.onSearchChanged(term) } /> 
                 <VideoDetails video={this.state.selectedVideo} />
                 <VideoList  
                     videos={this.state.videos} 
@@ -34,20 +37,20 @@ class Home extends Component {
         );
     }
 
-    onSearchChanged(search){
-        // Call youtube API
-        const youtube = new YoutubeService();
+    onSearchChanged(term){
+      // Call youtube API
+      const youtube = new YoutubeService();
 
-        youtube.doSearch(search, this.NUM_VIDEO_ITEMS_IN_LIST)
-            .then((result)=>{
-                this.setState({
-                    videos: result, 
-                    selectedVideo: result.length > 0 ? result[0] : undefined
-                });
-            })
-            .catch((error)=>{
-                //TODO: Handle this error
-            });
+      youtube.doSearch(term, this.NUM_VIDEO_ITEMS_IN_LIST)
+        .then((result)=>{
+          this.setState({
+            videos: result, 
+            selectedVideo: result.length > 0 ? result[0] : undefined
+          });
+        })
+        .catch((error)=>{
+            //TODO: Handle this error
+        });
     }
 
     onVideoItemClick(selectedVideo){
