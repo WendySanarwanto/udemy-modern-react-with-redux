@@ -1,12 +1,11 @@
 let ytSearch = require("youtube-api-search");
-class YoutubeService{
-    constructor(){
-        this.apiKey = 'AIzaSyBYnLPP6W4XLUBFQBoPBpGtMdyUHDtwveM';
-    }
 
+const API_KEY = 'AIzaSyBYnLPP6W4XLUBFQBoPBpGtMdyUHDtwveM';
+
+class YoutubeService{
     doSearch(search, numResult){
         return new Promise((resolve, reject)=>{
-            ytSearch({key: this.apiKey, term: search}, (result, error)=>{
+            ytSearch({key: API_KEY, term: search}, (result, error)=>{
                 if (error){
                     console.log(`[DEBUG-YoutubeService] - error:`);
                     console.log(error);
