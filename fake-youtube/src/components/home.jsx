@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 
+import _ from 'lodash';
 import SearchBar from './search-bar';
 import VideoDetails from './video-details'
 import VideoList from './video-list';
@@ -26,15 +27,17 @@ class Home extends Component {
     }
 
     render() {
-        return (
-            <div className="home">
-                <SearchBar onSearchChanged={ term => this.onSearchChanged(term) } /> 
-                <VideoDetails video={this.state.selectedVideo} />
-                <VideoList  
-                    videos={this.state.videos} 
-                    onVideoItemClick={video=>this.onVideoItemClick(video)}/>
-            </div>
-        );
+      const delay = 500;
+      const debouncedOnSearchChanged = _.debounce(term => this.onSearchChanged(term), delay);
+      return (
+        <div className="home">
+          <SearchBar onSearchChanged={ debouncedOnSearchChanged } /> 
+          <VideoDetails video={this.state.selectedVideo} />
+          <VideoList  
+              videos={this.state.videos} 
+              onVideoItemClick={video=>this.onVideoItemClick(video)}/>
+        </div>
+      );
     }
 
     onSearchChanged(term){
