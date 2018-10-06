@@ -1,0 +1,110 @@
+{
+	"info": {
+		"_postman_id": "c4531dcf-48bf-48f7-a564-a9f7e1df6009",
+		"name": "[Udemy] [Stephen Grider] Modern React with Redux - Blog API",
+		"description": "[Udemy] [Stephen Grider] Modern React with Redux - Blog API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create a new blog entry",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"Hello Visitors!\",\n\t\"categories\": \"general\",\n\t\"content\": \"Hello Visitors! Welcome to my Blogs page.\"\n}"
+				},
+				"url": {
+					"raw": "http://reduxblog.herokuapp.com/api/posts?key=cyHOw3gUJl",
+					"protocol": "http",
+					"host": [
+						"reduxblog",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"posts"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "cyHOw3gUJl"
+						}
+					]
+				},
+				"description": "Create a new blog entry by invoking POST request."
+			},
+			"response": []
+		},
+		{
+			"name": "Get a list of Blog entries",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://reduxblog.herokuapp.com/api/posts?key=cyHOw3gUJl",
+					"protocol": "http",
+					"host": [
+						"reduxblog",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"posts"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "cyHOw3gUJl"
+						}
+					]
+				},
+				"description": "Get a list of Blog entries through invoking the GET request"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a blog entry",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://reduxblog.herokuapp.com/api/posts/286873",
+					"protocol": "http",
+					"host": [
+						"reduxblog",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"posts",
+						"286873"
+					]
+				},
+				"description": "Delete a blog entry by invoking DELETE request"
+			},
+			"response": []
+		}
+	]
+}
