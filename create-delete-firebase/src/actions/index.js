@@ -1,6 +1,6 @@
 import Firebase from 'firebase';
 
-const FB_STORE_URL = 'https://react-crud-firebase-6932a.firebaseio.com/';
+const FB_STORE_URL = 'https://fbredux.firebaseio.com/';
 const DataList = new Firebase(FB_STORE_URL);
 
 export const FETCH_DATALIST = 'fetch_datalist';

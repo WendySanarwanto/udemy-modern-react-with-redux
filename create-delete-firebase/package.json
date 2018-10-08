@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "babel-preset-stage-1": "^6.1.18",
+    "firebase": "2.4.2",
     "lodash": "^3.10.1",
     "react": "16.3.2",
     "react-dom": "16.3.2",
