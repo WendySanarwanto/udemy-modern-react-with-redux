@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PostItem from './post_item';
 
-export default class App extends Component {
+import PostItem from './post_item';
+import { fetchDataList } from '../actions';
+
+class App extends Component {
   state = { post: ''};
+
+  componentDidMount(){
+    // Call action creator which trigger dataList query (?)
+    this.props.fetchDataList();
+  }
 
   onInputChange(e) {
     const value = e.target.value;
@@ -13,7 +20,15 @@ export default class App extends Component {
     this.setState({ post: e.target.value });
   }
 
-  render() {
+  renderDataList(){
+    // Get access to data list from props
+    const { dataList } = this.props;
+    console.log(`[DEBUG] - <App.renderDataList> dataList: \n`, dataList);
+
+    // TODO: Map back the data list as array and render each of their <li>s
+  }
+
+  render() {    
     return (
       <div className="container">
         <h4>Create a Post</h4>
@@ -26,10 +41,21 @@ export default class App extends Component {
             <button type="submit" className="btn btn-primary">Create Post</button>
           </div>
         </form>
-        <ul className="list-group col-md-4">
-          <PostItem />
-        </ul>
+        {/* <ul className="list-group col-md-4">
+          {this.renderDataList.bind(this)}
+        </ul> */}
       </div>
     );
   }
 }
+
+function mapStateToProps({dataList}) {
+  console.log(`[DEBUG] - <mapStateToProps> dataList: \n`, dataList);
+  return {
+    dataList
+  }
+}
+
+export default connect(mapStateToProps, {
+  fetchDataList
+})(App);
