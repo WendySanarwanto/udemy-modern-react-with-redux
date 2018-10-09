@@ -17,7 +17,7 @@ class PostsNew extends Component {
 
   renderField(field) {
     const { meta: { touched, error } }  = field;
-    const className = `form-group ${touched && error ? 'has-danger' : '' }`;
+    const className = `form-add-new-post form-group ${touched && error ? 'has-danger' : '' }`;
     
     return (      
       <div className={className}>
