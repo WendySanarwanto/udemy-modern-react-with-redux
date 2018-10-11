@@ -1,4 +1,4 @@
-import { FETCH_POSTS } from '../action';
+import { FETCH_POSTS, SELECT_POST } from '../action';
 
 export default function(state={}, action) {
   switch(action.type){
@@ -30,6 +30,13 @@ export default function(state={}, action) {
           title: "Coding Dynamic Behavior with the Strategy Pattern"
         }
       }
+    
+    case SELECT_POST:
+      const {id, isSelected} = action.payload;
+      const newState = { ...state };
+      newState[id].isSelected = isSelected;
+      console.log(`[DEBUG] - <post-items.reducer> newState: \n`, newState);
+      return newState;
 
     default:
       return state;
