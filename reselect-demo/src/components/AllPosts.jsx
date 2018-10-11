@@ -3,8 +3,13 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 
 import PostItem from './PostItem';
+import { fetch_posts } from '../actions';
 
 class AllPosts extends Component {
+  componentDidMount(){
+    this.props.fetch_posts();
+  }
+
   renderPostItems(postItems){
     return _.map(postItems, postItem => {
       return (
@@ -40,4 +45,4 @@ function mapStateToProps(state){
   }
 }
 
-export default connect(mapStateToProps)(AllPosts);
+export default connect(mapStateToProps, { fetch_posts })(AllPosts);
