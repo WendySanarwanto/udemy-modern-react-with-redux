@@ -17,15 +17,17 @@ class PostsNew extends Component {
 
   renderField(field) {
     const { meta: { touched, error } }  = field;
-    const className = `form-group ${touched && error ? 'has-danger' : '' }`;
+    const className = `form-add-new-post form-group ${touched && error ? 'has-danger' : '' }`;
     
     return (      
       <div className={className}>
         <label>{field.label}</label>
-        <input 
-          className="form-control"
-          type="text"
-          {...field.input}/>
+        { 
+          field.type === 'textarea' ? 
+            <textarea className="form-control" rows={field.rows}/> : 
+            <input className="form-control" type={field.type} {...field.input}/> 
+        }
+        
         <div className="text-help">
           { field.meta.touched ? field.meta.error : ''}
         </div>
@@ -38,9 +40,9 @@ class PostsNew extends Component {
 
     return (
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-        <Field name="title" label="Title For Post" component = {this.renderField} />
-        <Field name="categories" label="Categories" component = {this.renderField} />
-        <Field name="content" label="Post Content" component = {this.renderField} />
+        <Field name="title" type="text" label="Title For Post" component = {this.renderField} />
+        <Field name="categories" type="text" label="Categories" component = {this.renderField} />
+        <Field name="content" type="textarea" rows="4" label="Post Content" component = {this.renderField} />
         <button type="submit" className="btn btn-primary">Submit</button>
         <Link className="btn btn-danger" to="/">Cancel</Link>
       </form>
