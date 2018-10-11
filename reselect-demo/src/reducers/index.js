@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
+import PostItemsReducer from './post-items.reducer';
 
 const rootReducer = combineReducers({
-  delMe: () => { return {}; }
+  postItems: PostItemsReducer
 });
 
 export default rootReducer;

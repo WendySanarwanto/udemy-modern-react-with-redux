@@ -1,0 +1,7 @@
+.post-item-title {
+  margin-left: 1em;
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
+}
