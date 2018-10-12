@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 import { fetchPosts } from '../action';
 import PostItem from './PostItem';
-import { fetch_posts } from '../actions';
 
 class AllPosts extends Component {
   componentDidMount() {

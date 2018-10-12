@@ -4,7 +4,7 @@ import SelectedItemsReducer from './selected-items.reducer';
 
 const rootReducer = combineReducers({
   postItems: PostItemsReducer,
-  selectedItems: SelectedItemsReducer
+  selectedPostIds: SelectedItemsReducer
 });
 
 export default rootReducer;
