@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import { fetchPosts } from '../action';
 import PostItem from './PostItem';
+import './AllPosts.css';
 
 class AllPosts extends Component {
   componentDidMount() {
@@ -29,7 +30,7 @@ class AllPosts extends Component {
     // console.log(`[DEBUG] - <AllPosts.render> postItems: \n`, postItems);
 
     return (
-      <div>
+      <div className="all-posts-container">
         <h4>All Posts</h4>
         <ul className="list-group">
           {this.renderPostItems(postItems)}
