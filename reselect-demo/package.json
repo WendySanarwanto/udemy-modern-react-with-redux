@@ -8,13 +8,16 @@
     "react-dom": "^16.5.2",
     "react-redux": "^5.0.7",
     "react-scripts": "2.0.4",
-    "redux": "^4.0.0"
+    "redux": "^4.0.0",
+    "reselect": "^4.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "startdev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "start": "node server.js",
+    "deployheroku": "rm -rf build && yarn build && cp package.json ./build && cp yarn.lock ./build && cp server.js ./build && cd build && git init && heroku git:remote -a reselect-demo && git add . && git commit -m \"Deploying 'reselect-demo'\" && git push -f heroku master && cd .."
   },
   "eslintConfig": {
     "extends": "react-app"
