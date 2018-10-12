@@ -1,0 +1,16 @@
+.items-list-container {
+  margin-top: 1em;
+  margin-left: 1em;
+  margin-bottom: 1em;
+}
+
+li {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.remove {
+  margin-bottom: 0.5em;
+}
