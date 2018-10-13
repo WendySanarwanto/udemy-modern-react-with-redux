@@ -13,10 +13,12 @@
     "shortid": "^2.2.13"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "startdev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deployheroku": "rm -rf build && yarn build && cp package.json ./build && cp yarn.lock ./build && cp server.js ./build && cd build && git init && heroku git:remote -a reactjs-animation-demo && git add . && git commit -m \"Deploying 'reactjs-animation-demo'\" && git push -f heroku master && cd ..",
+    "start": "node server.js"
   },
   "eslintConfig": {
     "extends": "react-app"
