@@ -14,3 +14,29 @@ li {
 .remove {
   margin-bottom: 0.5em;
 }
+
+/* 'fade' because the transition name is set as 'fade'*/
+/* starting state of animation */
+.fade-enter {
+  /* right: 100px; */
+  transform: rotateX(90deg) rotateZ(90deg);
+  opacity: 0;
+}
+
+.fade-enter-active {
+  /* right: 0px; */
+  transform: rotateX(0deg) rotateZ(0deg);
+  transition: .5s ease-in all;
+  opacity: 1.0;
+}
+
+.fade-leave {
+  /* right: 0px; */
+  opacity: 1.0;
+}
+
+.fade-leave-active {
+  /* right: -100px; */
+  opacity: 0;
+  transition: .5s ease-out all;
+}
