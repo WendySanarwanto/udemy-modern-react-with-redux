@@ -1,6 +1,6 @@
 # udemy-modern-react-with-redux
 
-A collection of ReactJS exercises samples based on tutorial videos of Udemy's Modern React with Redux course, created by Stephen Grider
+A collection of ReactJS sample exercises based on tutorial videos of Udemy's [Modern React with Redux](https://www.udemy.com/react-redux/learn/v4/overview) course, created by Stephen Grider
 
 ## Sample Apps
 
