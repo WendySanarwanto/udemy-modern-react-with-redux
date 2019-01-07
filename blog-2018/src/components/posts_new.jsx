@@ -19,13 +19,13 @@ class PostsNew extends Component {
     const { meta: { touched, error } }  = field;
     const className = `form-add-new-post form-group ${touched && error ? 'has-danger' : '' }`;
     
-    return (      
+    return (
       <div className={className}>
         <label>{field.label}</label>
         { 
           field.type === 'textarea' ? 
-            <textarea className="form-control" rows={field.rows}/> : 
-            <input className="form-control" type={field.type} {...field.input}/> 
+            <textarea className="form-control" rows={field.rows} {...field.input} /> : 
+            <input className="form-control" type={field.type} {...field.input} /> 
         }
         
         <div className="text-help">
@@ -53,7 +53,7 @@ class PostsNew extends Component {
 function validate(values) {
   // values -> { title: '', categories: '', content: ''}
   const errors = {};
-  // console.log(`[DEBUG] - <components/posts_new.validate> values: \n`, values);
+  console.log(`[DEBUG] - <components/posts_new.validate> values: \n`, values);
   // console.log(`[DEBUG] - <components/posts_new.validate> values.title: \n`, values.title);
 
   // TODO: Validate the inputs from 'values'
