@@ -6,13 +6,14 @@ Below are the details inside of the app :
 - Navigating between pages in an application through using react-router library.
 - Declaring page navigation's routes within the application through using react-router's Route component.
 - Display react-router's Router component as the top component, replacing the App component. The Router component takes react-router's browserHistory component as its history property & defined routes object on its routes property.
-- Using react-router's <Link> component to allow the user navigating to certain regiestered paths through clicking it.
+- Using react-router's `<Link>` component to allow the user navigating to certain regiestered paths through clicking it.
 - Calling GET, POST, DELETE API through using axios library within action creators - they are created &amp; called for retrieving a list of post items, viewing an individual post &amp; deleting the viewed post.
 - Using redux-promise library for handling API request, transforming the result into desired data.
 - Create a reducer which hold the retrieved a list of data &amp; an individual data and packed within a state.
 - Building Form user interface for submitting entries through using components in redux-form library, including field's validations.
 
-# Work Details:
+## Work Details
+
 Below are detail of works that are taken for implementing this sample:
 
 1. Prepare project repository - setup required dependencies, .gitignore setting, README.md.
@@ -37,6 +38,6 @@ Below are detail of works that are taken for implementing this sample:
 20. Connect the Delete Post action creator with the View Post page component. Ensure that the action is called when Delete button is clicked.
 21. Navigate the user to Post Items list index page when Delete Post button is clicked and Post to Backend is completed.
 
-# Known issues:
+## Known issues
 
 - Current implementation does not support responsive layout.
